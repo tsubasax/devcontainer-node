@@ -11,12 +11,9 @@ RUN apk --update --no-cache add \
   tzdata \
   && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
   && apk del tzdata \
-  && echo "Asia/Tokyo" >  /etc/timezone
+  && echo "Asia/Tokyo" > /etc/timezone
 
-# Set locale
-ENV LANG=ja_JP.UTF-8
-ENV LANGUAGE=ja_JP:ja
-ENV LC_ALL=ja_JP.UTF-8
+# Alpine has no locale, so we don't have to change locale.
 
 # Switch to non-root user
 RUN addgroup -g "${GID}" "${USER_NAME}" \
