@@ -1,9 +1,8 @@
 version: "3"
-volumes:
-  node-volume:
 services:
   app:
-    build: ./docker/node
+    build: ./nodejs
     tty: true
     volumes:
-      - node-volume:/app
+      - ../:/app
+      - /app/node_modules

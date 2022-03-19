@@ -2,7 +2,7 @@ FROM node:16-alpine
 
 ARG UID=10000
 ARG GID=10000
-ARG USER_NAME=vscode
+ARG USER_NAME=minteel
 
 # Install packages & set timezone
 RUN apk --update --no-cache add \
@@ -23,3 +23,5 @@ USER ${USER_NAME}
 
 # Create workspace
 WORKDIR /app
+
+RUN mkdir node_modules
